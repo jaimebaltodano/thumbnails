@@ -1,0 +1,2 @@
+# thumbnails
+Image thumbnails
