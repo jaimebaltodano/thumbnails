@@ -10,15 +10,15 @@ const DashBoard = () => {
 	const { thumbNailStore } = useStore();
 	const { selectedImage } = thumbNailStore;
 	return (
-		<Grid padded>
-			<Grid.Row centered>
-				<Grid.Column width='6'>
+		<Grid padded centered>
+			<Grid.Row>
+				<Grid.Column width='10'>
 					{selectedImage &&
 						<ImageDetails />}
 				</Grid.Column>
 			</Grid.Row>
-			<Grid.Row centered>
-				<Grid.Column width='10'>
+			<Grid.Row>
+				<Grid.Column width='12'>
 					<ImagesList />
 				</Grid.Column>
 			</Grid.Row>

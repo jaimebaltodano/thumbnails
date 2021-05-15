@@ -18,7 +18,7 @@ function App() {
   return (
     <Fragment>
       <NavBar  />
-      <Container style={{marginTop:'7em'}}>
+      <Container style={{marginTop:'4em'}}>
         <DashBoard  />
       </Container>
     </Fragment>

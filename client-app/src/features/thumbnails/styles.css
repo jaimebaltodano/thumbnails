@@ -1,0 +1,9 @@
+.imageborder{
+  border: 1px solid #1c6c9b;
+  box-shadow: 0px 0px 10px 3px #166d96;
+}
+
+.ui.grey.big.circular.icon.button:hover{
+  color: rgb(169, 223, 43)!important;
+  box-shadow: 0px 0px 10px 3px rgb(140, 189, 84);
+}
