@@ -1,2 +1,2 @@
-# thumbnails
-Image thumbnails
+# PIGA
+ thumbnails

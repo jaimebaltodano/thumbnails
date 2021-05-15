@@ -4,6 +4,7 @@ import { useStore } from '../../app/stores/store';
 import './styles.css';
 import { ThumbNail } from '../../app/models/thumbnail';
 import { Button, Grid, Image, Label, Segment } from 'semantic-ui-react';
+import LoadingComponent from '../../app/layout/LoadingComponent';
 
 const ImagesList = () => {
 	const { thumbNailStore } = useStore();
@@ -12,14 +13,17 @@ const ImagesList = () => {
 	const [thumbNailsGroup, setThumbNailsGroup] = useState<ThumbNail[]>([]);
 	const [nextPage, setNextPage] = useState(true);
 	const itemsbypage: number = 4;
+	const [loadingThumbnails, setLoadingThumbnails] = useState(false);
 
 	useEffect(() => {
 		const lastItem = pageNumber * itemsbypage + itemsbypage;
 		setThumbNailsGroup(thumbNails.slice(pageNumber * itemsbypage, lastItem));
 		setNextPage(lastItem < thumbNails.length);
+		setLoadingThumbnails(false);
 	}, [thumbNails, pageNumber]);
 
 	const computeNewPage = (orientation: string) => {
+		setLoadingThumbnails(true);
 		const lastItem = pageNumber * itemsbypage + itemsbypage;
 		if (orientation === 'left') {
 			if (pageNumber > 0)
@@ -29,6 +33,9 @@ const ImagesList = () => {
 				setPageNumber(pageNumber + 1);
 		}
 	}
+
+	if (loadingThumbnails) return (<Segment><LoadingComponent/></Segment>)
+
 	return (
 		<Segment>
 			<Grid doubling centered columns="4">
@@ -46,7 +53,6 @@ const ImagesList = () => {
 							<Segment textAlign='center'>
 								<Label attached='top'>{thumbnail.id}</Label>
 								<Image
-									style={{maxHeight:'70px'}}
 									fluid
 									className={selectedImage?.id === thumbnail.id ? 'imageborder' : ''}
 									src={`/assets/thumbnails/${thumbnail.thumbnail}`}

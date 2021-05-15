@@ -1,0 +1,29 @@
+
+.imageFrame {
+  height:32em;
+  position:relative
+}
+
+.ui.fluid.image img{
+  max-height: 437px;
+}
+@media only screen and (min-width: 1198px){
+  .ui.fluid.image img{
+    max-height: 537px;
+  }
+  .imageFrame {
+    height:40em;
+  }
+}
+
+@media only screen and (max-width: 800px){
+  .imageFrame {
+    height:26em;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .imageFrame {
+    height:13em;
+  }
+}

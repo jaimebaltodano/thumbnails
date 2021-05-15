@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Image, Header, Segment } from 'semantic-ui-react';
 import LoadingComponent from '../../app/layout/LoadingComponent';
 import { useStore } from '../../app/stores/store';
+import './styles.css';
 
 
 const ImageDetails = () => {
@@ -15,9 +16,10 @@ const ImageDetails = () => {
 			</Header>
 			<Segment attached>
 				<Card.Content>
-					<Card.Meta textAlign='center'>
+					<Card.Meta textAlign='center' className='imageFrame'>
 						<Image
 							fluid
+							style={{maxHeight:'100%', position:'absolute'}}
 							label={{
 								as: 'a',
 								color: 'teal',
