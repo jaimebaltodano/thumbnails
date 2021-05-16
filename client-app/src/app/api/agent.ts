@@ -1,16 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
 import { ThumbNail } from '../models/thumbnail';
 
-const sleep = (delay:number) => {
-    return new Promise((resolve) => {
-        setTimeout(resolve, delay);
-    })
-}
-
 axios.defaults.baseURL = 'http://localhost:3001/api';
 axios.interceptors.response.use(async response => {
     try{
-        await sleep(1000);
         return response;
     }
     catch(err){
